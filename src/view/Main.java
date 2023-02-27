@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		RedesController redescontroller = new RedesController();
 		String nomeSistema = redescontroller.os();
-		System.out.println(nomeSistema);
+		System.out.println("Você está usando " + nomeSistema);
 		int opcao;
 		do {
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(
