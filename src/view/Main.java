@@ -8,6 +8,9 @@ public class Main {
 		RedesController redescontroller = new RedesController();
 		String nomeSistema = redescontroller.os();
 		System.out.println(nomeSistema);
+		
+		String processo = "IPCONFIG";
+		redescontroller.ip(processo);
 	}
 	
 
