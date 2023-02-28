@@ -13,21 +13,23 @@ public class RedesController {
 		
 	}
 	public void ip(String processo) {
+		int contador = 0;
 		try {
 			Process p = Runtime.getRuntime().exec(processo);
 			InputStream fluxo = p.getInputStream();
 			InputStreamReader leitor = new InputStreamReader(fluxo);
 			BufferedReader buffer = new BufferedReader(leitor);
 			String linha = buffer.readLine();
-			// Falta checar se o adaptador tem ou não IPv4
 			while (linha != null) {
-				if(linha.contains("Adaptador")) {
+				if (linha.contains("Sem nome")) {
+					contador = 1;
+				} else if (linha.contains("Ethernet")){
 					System.out.println(linha);
 				}
-				if(linha.contains("IPv4")) {
+				if (linha.contains("IPv4") && contador == 0) {
 					System.out.println(linha);
-				}
-				linha = buffer.readLine();
+				} 
+					linha = buffer.readLine();
 			}
 
 			buffer.close();
