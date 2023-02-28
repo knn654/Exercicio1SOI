@@ -48,10 +48,14 @@ public class RedesController {
 			InputStreamReader leitor = new InputStreamReader(fluxo);
 			BufferedReader buffer = new BufferedReader(leitor);
 			String linha = buffer.readLine();
-			// Falta checar e dividir a linha do ping
 			while (linha != null) {
-				System.out.println(linha);
+				String[] teste = linha.split("ms, ", -2);
 				linha = buffer.readLine();
+		        for (String divisor : teste) {
+		        	if(divisor.contains("dia")) {
+		        		System.out.println(divisor);
+		        	}
+		        }
 			}
 
 			buffer.close();
