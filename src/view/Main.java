@@ -17,20 +17,10 @@ public class Main {
 					"Digite a opção desejada:\n" + "1 - Método IP\n" + "2 - Método Ping\n" + "9 - Finalizar"));
 			switch (opcao) {
 			case 1:
-				if (nomeSistema.contains("Windows")) {
-					processo = "IPCONFIG";
-				} else {
-					processo = "IFCONFIG";
-				}
-				redescontroller.ip(processo);
+				redescontroller.ip();
 				break;
 			case 2: 
-				if (nomeSistema.contains("Windows")) {
-					processo = "PING -4 -n 10 www.google.com.br";
-				} else {
-					processo = "PING -4 c 10 www.google.com.br";
-				}
-				redescontroller.ping(processo);
+				redescontroller.ping();
 				break;
 			case 9:
 				break;
